@@ -1,8 +1,9 @@
 package com.example.user_management_app.service;
 
-import com.example.user_management_app.model.UserDetails;
+import com.example.user_management_app.model.UserDetls;
 import com.example.user_management_app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,8 +12,13 @@ public class UserServiceImpl implements UserService{
     private UserRepository userRepository;
 
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     @Override
-    public UserDetails createUser(UserDetails userDetails) {
+    public UserDetls createUser(UserDetls userDetails) {
+        userDetails.setPassword(passwordEncoder.encode(userDetails.getPassword()));
+        userDetails.setRole("ROLE_USER");
         return userRepository.save(userDetails);
     }
 

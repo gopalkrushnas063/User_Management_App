@@ -1,13 +1,14 @@
 package com.example.user_management_app.controller;
 
-import com.example.user_management_app.model.UserDetails;
+import com.example.user_management_app.model.UserDetls;
 import com.example.user_management_app.service.UserService;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
@@ -19,7 +20,7 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/signin")
     public String login(){
         return "login";
     }
@@ -31,7 +32,7 @@ public class HomeController {
 
 
     @PostMapping("/createUser")
-    public String createuser(@ModelAttribute UserDetails userDetails, HttpSession session){
+    public String createuser(@ModelAttribute UserDetls userDetails, HttpSession session){
         //System.out.println(userDetails);
 
         boolean email = userService.checkEmail(userDetails.getEmail());
@@ -39,7 +40,7 @@ public class HomeController {
         if(email){
             session.setAttribute("msg","Email ID Already Exist");
         }else {
-            UserDetails userDetails1 =  userService.createUser(userDetails);
+            UserDetls userDetails1 =  userService.createUser(userDetails);
             if(userDetails1 != null){
                 session.setAttribute("msg","Register Successfully");
             }else {

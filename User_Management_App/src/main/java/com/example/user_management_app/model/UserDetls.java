@@ -1,15 +1,16 @@
 package com.example.user_management_app.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
 import lombok.Data;
-import lombok.Generated;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Data
 @Entity
-public class UserDetails {
+public class UserDetls {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -18,6 +19,5 @@ public class UserDetails {
     private String address;
     private String qualification;
     private String password;
-
-
+    private String role;
 }

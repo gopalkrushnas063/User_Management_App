@@ -1,8 +1,8 @@
 package com.example.user_management_app.service;
 
-import com.example.user_management_app.model.UserDetails;
+import com.example.user_management_app.model.UserDetls;
 
 public interface UserService {
-    public UserDetails createUser(UserDetails userDetails);
+    public UserDetls createUser(UserDetls userDetails);
     public boolean checkEmail(String email);
 }
