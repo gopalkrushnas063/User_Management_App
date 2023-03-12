@@ -17,7 +17,7 @@ public class UserDetls {
     private String fullName;
     private String email;
     private String address;
-    private String qualification;
+    private String language;
     private String password;
     private String role;
 }

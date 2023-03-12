@@ -1,9 +1,12 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             background-color: #192133;
@@ -31,20 +34,7 @@
             margin-bottom: 10px;
         }
 
-        #navbar div {
-            text-align: center;
-            padding-right: 40px;
-        }
-
-        #navbar div a {
-            color: yellow;
-            text-align: center;
-            align-items: center;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        #navbar div a:hover{
+        #navbar div a:hover {
             color: lightgreen;
         }
 
@@ -111,17 +101,7 @@
                 width: 100%;
             }
 
-            #navbar div {
-                text-align: center;
-                padding-right: 20px;
-            }
 
-            #navbar div a {
-                color: yellow;
-                text-align: center;
-                align-items: center;
-                font-size: 15px;
-            }
         }
 
         @media all and (min-width:481px) and (max-width: 720px) {
@@ -152,19 +132,71 @@
                 margin-top: 10px;
             }
         }
+
+        .dropbtn {
+            background-color: black;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 6px;
+            border-radius: 10px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #121a2c;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            right: 0;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: end;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #121a2c
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #121a2c;
+        }
     </style>
-    <title>Movie Star</title>
 </head>
 
 <body>
-    <div id="navbar">
-        <img src="https://user-images.githubusercontent.com/103574856/224496423-0c87a915-fee4-4964-adf2-d2602a4672e4.png"
-            alt="" />
-        <div>
-            <p><a href="https://usermanagementjava-production.up.railway.app/logout">Logout</a></p>
+
+<div id="navbar">
+    <img src="https://user-images.githubusercontent.com/103574856/224496423-0c87a915-fee4-4964-adf2-d2602a4672e4.png"
+         alt="" />
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fa fa-user" aria-hidden="true"></i></button>
+        <div class="dropdown-content">
+            <a href="#">[[${user.fullName}]]</a>
+            <a href="#">[[${user.email}]]</a>
+            <a href="#">[[${user.language}]]</a>
+            <a href="/logout">Logout</a>
         </div>
     </div>
-    <div id="container"></div>
+</div>
+<div id="container"></div>
 </body>
 
 </html>
@@ -202,7 +234,7 @@
             let rDate = document.createElement("p");
             rDate.innerText = `Release Date : ${el.release_date}`;
             let rate = document.createElement("p");
-            rate.innerText = `Rating : ${el.vote_average}⭐`;
+            rate.innerText = `Rating : ${el.vote_average}?`;
             let overview = document.createElement("p");
             overview.innerText = `Overview : ${el.overview}`;
 
