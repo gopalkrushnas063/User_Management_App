@@ -4,7 +4,7 @@
 <p align="justify">The main objectives of this project is to provide movie review.</p>
 
 <h3>User module :</h3>
-<li>User can signup,signin and view the review of movie</li>
+<li> User can signup,signin and view the review of movie</li>
 <br>
 <hr>
 
